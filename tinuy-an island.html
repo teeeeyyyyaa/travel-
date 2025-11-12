@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('TINUY-AN.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+      
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+    <img src="TINUY-AN.jpg" alt="Tinuy-an Falls">
+
+    <div class="info">
+      <h2>TINUY_AN FALLS</h2>
+      <p>Tinuy-an Falls has a legend attached: it is said that people from Magdiwata Mountain were  
+enslaved by tribes from Agusan. To free themselves, the enslaved plotted and eventually pushed their
+captors off a raft over the falls, thus gaining their freedom. This act was deliberate and purposeful, 
+giving rise to the name Tinuy-an, which comes from a local word meaning “intentional act or performance 
+to attain an objective or goal. </p><br>
+
+       <p>Tinuy-an Falls is a multi-tiered waterfall located in Bislig City, Surigao del Sur, Mindanao. 
+ It has three visible tiers (there’s a fourth that's hidden) and is very wide – often called the 
+“Niagara Falls of the Philippines.” Visitors can swim in natural pools, trek to the different 
+levels, and enjoy the view. Entrance is affordable (about PHP 50 per person), with extra fees 
+for raft rides and life vest rentals.</p>
+
+      <p>Tinuy-an Falls, often called the “Niagara Falls of the Philippines,” is one of the most 
+beautiful waterfalls in the country. It is located in Barangay Borboanan, Bislig City, Surigao del
+ Sur, in the island of Mindanao. The falls measure about 95 meters wide and 55 meters high, making 
+ it the widest waterfall in the Philippines. Surrounded by lush forests and clean waters, Tinuy-an 
+ Falls is not only a natural wonder but also a symbol of the rich culture and traditions of the 
+ people living in the area.</p><br>
+
+      <p>The falls attract both local and foreign tourists who are amazed by its three-tiered 
+cascades. The mist from the falls creates rainbows almost every morning, giving visitors 
+a magical experience. Tourists can enjoy swimming, bamboo rafting, and taking pictures of 
+the breathtaking scenery. The people of Bislig are known for being warm and hospitable, 
+always ready to welcome visitors and share stories about the place’s history and significance.</p><br>
+
+     <p>The culture surrounding Tinuy-an Falls reflects the diverse heritage of the Mindanao people, 
+especially the Mandaya and Manobo tribes. These indigenous groups have lived in the area for generations, 
+preserving their traditional dances, songs, and handicrafts. They celebrate their customs through 
+colorful festivals that showcase their respect for nature, their ancestors, and their community. 
+Visiting Tinuy-an Falls gives tourists a glimpse into the peaceful and respectful way of life of 
+these native tribes.</p><br>
+
+     <p>Local legends say that Tinuy-an Falls was once a place of freedom for enslaved natives. 
+According to the story, the slaves rebelled against their cruel master and drove him away, symbolizing 
+their victory and independence. The name “Tinuy-an” comes from the Visayan word meaning “intentional act” 
+or “deliberate effort,” reflecting the courage and unity of the people. Many locals also believe 
+that the spirits of nature protect the area, so they offer prayers and small rituals before entering 
+the falls to show respect.</p><br>
+
+     <p>The nearby communities around Tinuy-an Falls also offer a variety of traditional foods that 
+reflect the rich culture of Surigao del Sur. Popular dishes include kinilaw (fresh raw fish marinated 
+in vinegar and spices), sinugba (grilled fish or meat), and puso (rice wrapped in coconut leaves). 
+Visitors can also try kakanin such as biko and suman, which are sweet rice cakes made from sticky 
+rice and coconut milk. These dishes are often served during gatherings, fiestas, and celebrations 
+near the falls.</p><br>
+
+     <p>Tinuy-an Falls plays a vital role in the local economy and cultural preservation of Bislig. 
+Tourism provides jobs to residents, from tour guides and food vendors to souvenir makers. At the same 
+time, the cultural heritage of the indigenous people is promoted and respected. The local government 
+and community members work together to maintain the beauty and cleanliness of the falls while protecting 
+the traditions that make the place unique.</p><br>
+
+     <p>Tinuy-an Falls is more than just a tourist destination—it is a living symbol of nature, culture, 
+and history. Its magnificent beauty represents the harmony between people and the environment. The beliefs, 
+foods, and traditions of the locals make every visit meaningful, reminding everyone that preserving culture 
+is just as important as protecting nature. Truly, Tinuy-an Falls stands as a precious treasure of Surigao 
+del Sur and the entire Philippines.</p>
+    
+
+    
+</body>
+</html>

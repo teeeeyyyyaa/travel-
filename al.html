@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Travel & Tourism Website</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: rgb(172, 126, 134);
+      --accent-dark: rgb(152, 109, 109);
+      --white: white;
+    }
+
+    * { box-sizing: border-box; }
+    body, html { margin: 0; font-family: Montserrat, Arial, sans-serif; }
+
+    nav {
+      background: #2c3e50;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: rgb(164, 91, 102); }
+
+    .hero {
+      height: 100vh;
+      min-height: 500px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero .slides {
+      position: absolute; inset: 0;
+      display: flex;
+      transition: transform 800ms ease;
+    }
+    .hero .slide {
+      min-width: 100%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: brightness(0.85);
+    }
+    .hero-inner { position: relative; z-index: 10; }
+    .hero h1 { font-size: clamp(30px,6vw,60px); margin: 0 0 12px; }
+    .hero p { font-weight: 300; font-size: 18px; margin: 0 0 20px; }
+    .hero button {
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      color: white; border: none; padding: 10px 20px;
+      border-radius: 6px; font-weight: 600; cursor: pointer;
+    }
+
+    .dots {
+      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 8px; z-index: 20;
+    }
+    .dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: rgb(155, 102, 111); cursor: pointer;
+    }
+    .dot.active { background: var(--accent); }
+
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, white, rgb(140, 94, 101) );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: white;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: rgb(140, 75, 86); font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+    .section { margin: 30px; }
+    .section h2 { margin-bottom: 10px; font-size: 22px; }
+    .gallery {
+      display: grid;
+     background: linear-gradient(to right, white, rgb(137, 71, 81) );
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px
+    }
+    .gallery img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px; box-shadow: 0 2px 6px black;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover { transform: scale(1.05); }
+    hr { border: 1px black; margin: 20px 0; }
+    
+    .signup {
+      background: url("signup.jpg") no-repeat center center/cover;
+      background: linear-gradient(to right, white, rgb(147, 90, 100));
+      height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      color: rgb(169, 92, 105); text-align: center;
+    }
+    .signup-box {
+      background: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+    }
+    .signup-box h2 {
+      margin-bottom: 20px;
+      border-bottom: 2px solid lightpink;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .signup-box input {
+      display: block; width: 100%;
+      margin: 10px 0; padding: 10px;
+      border: none; border-radius: 5px;
+    }
+    .signup-box button {
+      background: rgb(165, 105, 115); border: none; padding: 10px 20px;
+      color: white; font-weight: bold; border-radius: 5px; cursor: pointer;
+      width: 100%;
+    }
+    .signup-box button:hover { background: rgb(169, 110, 120); }
+
+    .form-container {
+      max-width: 300px;
+      margin: 50px auto;
+      background: rgb(151, 92, 102);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .form-header {
+      background: #dcdcdc;
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    form {
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: white;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: rgb(223, 205, 209);
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: rgb(232, 204, 206);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="slides" id="slides">
+      <div class="slide" style="background-image:url('BACKGRAOUND.jpg');"></div>
+      <div class="slide" style="background-image:url('d:\ALL DOCUMENTS\BACKGROUND1.jpg');"></div>
+      <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=2000&q=80');"></div>
+    </div>
+    <div class="hero-inner">
+      <h1>Explore the World</h1>
+      <p>Discover beautiful destinations and unforgettable experiences</p>
+      <button onclick="location.href='signup.html'">Get Started</button>
+    </div>
+    <div class="dots" id="dots"></div>
+  </section>
+''
+</body>
+</html>

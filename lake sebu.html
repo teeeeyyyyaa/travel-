@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('SEBU.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <img src="SEBU.jpg" alt="Lake Sebu">
+
+    <div class="info">
+      <h2>LAKE SEBU</h2>
+      <p>Lake Sebu, located in South Cotabato, Philippines, is home to the T’boli, Ubo, and 
+other indigenous peoples who have lived in the area for centuries. The lake and its surroundings 
+have long been central to the cultural identity and traditions of these communities, serving as 
+a source of livelihood, spiritual significance, and artistic inspiration—particularly in the famous 
+T’nalak weaving of the T’boli. During the Spanish and American colonial periods, the area remained 
+relatively isolated, preserving much of its indigenous culture and natural beauty.</p><br>
+
+       <p>Lake Sebu is a natural lake situated in the highlands of South Cotabato, covering 
+approximately 354 hectares and sitting about 1,000 meters above sea level. It is one of the 
+country’s most important watersheds, providing irrigation and water supply to surrounding towns. 
+The area is also a well-known ecotourism destination, famous for its seven majestic waterfalls, 
+scenic viewpoints, rich biodiversity, and vibrant indigenous culture. Visitors can enjoy boat rides, 
+zipline adventures, and cultural encounters while experiencing the tranquil charm of Mindanao’s “summer 
+capital.”</p><br>
+
+       <p>Lake Sebu is a beautiful highland municipality located in South Cotabato, Mindanao, Philippines. 
+Nestled at about 1,000 meters above sea level, it is known for its cool climate, scenic landscapes, and the 
+famous Seven Falls. The area takes its name from the largest of the three natural lakes—Lake Sebu itself—which 
+serves as the lifeblood of the community. Beyond its natural charm, Lake Sebu is deeply valued as the cultural 
+heartland of the T’boli people, one of the indigenous groups of Mindanao known for their rich traditions, 
+artistry, and strong spiritual connection to nature.</p><br>
+
+       <p>The T’boli are often called the “Dream Weavers” of the Philippines because of their traditional weaving art called T’nalak. 
+This intricate fabric is handwoven from abaca fibers and dyed using natural pigments. What makes T’nalak unique is that its designs 
+are believed to come from dreams. Only women weavers, known as dream weavers, are allowed to create them, as they are 
+thought to possess the spiritual gift to interpret dreams into patterns. The T’nalak symbolizes T’boli identity, cultural continuity, 
+and harmony between humans, nature, and the spirit world.</p><br>
+
+       <p>The T’boli people have a deep spiritual worldview rooted in animism and ancestral worship. They believe that spirits, 
+known as fu, inhabit natural elements such as trees, mountains, rivers, and the lake itself. Lake Sebu, in particular, is considered 
+sacred, as it provides life and sustenance to the community. Traditional rituals, such as offering food and performing dances, 
+are held to honor the spirits and ensure balance in nature. The T’boli also practice kem’san, a belief system that emphasizes 
+respect for both seen and unseen beings, reflecting their harmonious relationship with the environment.</p><br>
+
+       <p>Music and dance are central to T’boli culture. They use traditional instruments like the hegalong (two-stringed lute), 
+kulintang (set of gongs), and kubing (jaw harp) to accompany rituals and celebrations. Their dances often mimic the 
+movements of nature and animals, such as birds and fish, symbolizing their connection to the natural world. 
+The Madal Tahu (Dance of the Birds) and Kadal Tahaw (Dance of the T’boli) are among their most famous performances, 
+often showcased during festivals and cultural presentations.</p><br>
+
+       <p>One of the most celebrated events in Lake Sebu is the Helobung Festival, held every November. The term Helobung means 
+“never-ending joy” and embodies the community’s happiness and gratitude for their blessings. During the festival, T’boli people 
+wear colorful traditional garments, perform dances, and display their craftsmanship in weaving and brass-making. It is also a time 
+for cultural exchange and tourism, as visitors are invited to experience the rich traditions and hospitality of the T’boli.</p><br>
+
+       <p>Food plays an important role in T’boli and Lake Sebu culture. The lake is abundant with tilapia, which has become the area’s 
+main source of livelihood and a local delicacy. Popular dishes include chicharon na tilapia, sinugba (grilled tilapia), and tilapia 
+chicharon (crispy fried tilapia skin). Other traditional foods include root crops, upland rice, and native chicken cooked in coconut 
+milk or bamboo. During special occasions, they prepare linagpang (grilled fish soup) and tinumis, a hearty native stew. Meals are 
+often shared communally, reflecting the T’boli value of togetherness and generosity.</p><br>
+
+       <p>Despite modernization, the people of Lake Sebu strive to preserve their cultural heritage and natural environment. 
+Tourism has brought both opportunities and challenges—providing income but also threatening traditional ways of life. 
+Local leaders and organizations now work together to promote sustainable tourism that respects T’boli culture and protects 
+the lake’s ecosystem. Through education, cultural festivals, and storytelling, the people of Lake Sebu continue to pass on 
+their beliefs, art, and traditions to the next generation, ensuring that their rich cultural identity endures.</p><br>
+      
+</body>
+</html>

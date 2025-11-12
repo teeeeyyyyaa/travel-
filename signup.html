@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .signup {
+      /* aesthetic ocean sunrise image from Unsplash + soft pink gradient */
+      background: linear-gradient(135deg, rgba(255,192,203,0.18), rgba(255,182,193,0.12)),
+                  url('BACKGROUND1.jpg') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      color: #fff; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .signup::before{
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.5));
+      z-index: 1;
+      pointer-events: none;
+    }
+    .signup-box {
+      position: relative; z-index: 2;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      padding: 34px;
+      border-radius: 12px;
+      width: 320px;
+      max-width: 90%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .signup-box h2 {
+      margin-bottom: 20px;
+      border-bottom: 2px solid rgb(155, 90, 100);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+    .signup-box input {
+      display: block; width: 100%;
+      margin: 10px 0; padding: 10px;
+      border: none; border-radius: 5px;
+      font-size: 16px;
+    }
+    .signup-box button {
+      background: rgb(159, 101, 111); border: none; padding: 10px 20px;
+      color: white; font-weight: bold; border-radius: 5px; cursor: pointer;
+      width: 100%;
+    }
+    @media (max-width:600px){
+      .signup-box{
+        width:100%;
+        padding:24px;
+        max-width:95%;
+      }
+      .signup-box h2{
+        font-size:1.2em;
+      }
+      .signup-box input, .signup-box button{
+        font-size:16px;
+      }
+    }
+    .signup-box button:hover { background: rgb(163, 114, 122); }
+
+    </style>
+</head>
+<body>
+    
+    <section class="signup" id="signup">
+  <div class="signup-box">
+    <h2>REGISTER</h2>
+    <form id="signupForm">
+      <input id="username" name="username" type="text" placeholder="Username" required>
+      <input id="password" name="password" type="password" placeholder="Password" required>
+      <input id="email" name="email" type="email" placeholder="Email" required>
+      <button type="submit">SUBMIT</button>
+    </form>
+    <p style="margin-top:12px;color:#fff">Already registered? <a href="login.html" style="color:lightpink">Log in</a></p>
+    <div id="message" style="margin-top:10px;color:white;font-weight:bold"></div>
+  </div>
+</section>
+
+<script>
+  // Helper utilities
+  const enc = new TextEncoder();
+
+  function toHex(buffer) {
+    return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2,'0')).join('');
+  }
+
+  function fromHex(hex) {
+    const bytes = new Uint8Array(hex.length/2);
+    for (let i=0;i<bytes.length;i++) bytes[i]=parseInt(hex.substr(i*2,2),16);
+    return bytes;
+  }
+
+  async function sha256(data) {
+    return await crypto.subtle.digest('SHA-256', data);
+  }
+
+  function randomSalt(len=16){
+    const b = new Uint8Array(len);
+    crypto.getRandomValues(b);
+    return b;
+  }
+
+  function loadUsers(){
+    try{
+      return JSON.parse(localStorage.getItem('users')||'{}');
+    }catch(e){return {}}
+  }
+
+  function saveUsers(users){ localStorage.setItem('users', JSON.stringify(users)); }
+
+  document.getElementById('signupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const u = document.getElementById('username').value.trim();
+    const p = document.getElementById('password').value;
+    const em = document.getElementById('email').value.trim();
+    const msg = document.getElementById('message');
+    msg.style.color = 'white';
+
+    if (!u || !p) { msg.textContent = 'Enter username and password'; return; }
+
+    const users = loadUsers();
+    if (users[u]) { msg.style.color='orange'; msg.textContent = 'Username already registered. Please log in.'; return; }
+
+    // create salt, hash
+    const salt = randomSalt(16);
+    const pwBytes = enc.encode(p);
+    const combined = new Uint8Array(salt.byteLength + pwBytes.byteLength);
+    combined.set(salt,0); combined.set(pwBytes,salt.byteLength);
+    const hashBuf = await sha256(combined.buffer);
+
+    users[u] = {
+      email: em,
+      salt: toHex(salt.buffer),
+      hash: toHex(hashBuf),
+      created: Date.now()
+    };
+    saveUsers(users);
+
+    msg.style.color='lightgreen';
+    msg.textContent = 'Registration successful — redirecting to login...';
+    setTimeout(()=> location.href='login.html', 1000);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TravelSite</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: url('BACKGROUND1.jpg')
+                  no-repeat center center fixed;
+      background-size: cover;
+      color: rgb(5, 5, 5);
+    }
+
+      nav {
+      background: rgb(154, 99, 108);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav ul li { margin: 0 10px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; } 
+
+    .destinations {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .destinations h2 {
+      margin-bottom: 25px;
+    }
+
+    /* Grid layout for exactly 5 pictures per line */
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      justify-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .dest-grid div {
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      backdrop-filter: blur(4px);
+      transition: transform 0.3s;
+      width: 100%;
+      max-width: 200px;
+    }
+
+    .dest-grid div:hover {
+      transform: scale(1.05);
+    }
+
+    .dest-grid img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+    }
+
+    .dest-grid button {
+      width: 100%;
+      border: none;
+      background: rgba(126,84,91,0.9);
+      color: white;
+      padding: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .dest-grid button:hover {
+      background: rgb(168,115,123);
+    }
+
+    /* Responsive layout for smaller screens */
+    @media (max-width: 1024px) {
+      .dest-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dest-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        padding: 0 10px;
+      }
+
+      .dest-grid div {
+        max-width: 100%;
+      }
+
+      .dest-grid img {
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .dest-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .dest-grid div {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .destinations h2 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+ <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <section class="destinations" id="destination">
+    <div class="dest-grid">
+      <div>
+        <img src="Mount-apo-1024x907.png" alt="Mount Apo">
+        <button onclick="location.href='mountapo.html'">MOUNT APO</button>
+      </div>
+      <div>
+        <img src="samal island.jpg" alt="Samal Island">
+       <button onclick="location.href='samal island.html'">SAMAL ISLAND</button>
+      </div>
+      <div>
+        <img src="Dinagat.jpg" alt="Dinagat Island">
+        <button onclick="location.href='dinagat island.html'">DINAGAT ISLAND</button>
+      </div>
+      <div>
+        <img src="White island.jpg" alt="White Island">
+        <button onclick="location.href='white island.html'">WHITE ISLAND</button>
+      </div>
+      <div>
+        <img src="tinuy-an falls.jpg" alt="Tinuy-an Falls">
+        <button onclick="location.href='tinuy-an island.html'">TINUY-AN FALLS</button>
+      </div>
+      <div>
+        <img src="lake sebu.jpg" alt="Lake Sebu">
+        <button onclick="location.href='lake sebu.html'">LAKE SEBU</button>
+      </div>
+      <div>
+        <img src="lake holon.jpg" alt="Lake Holon">
+        <button onclick="location.href='lake holon.html'">LAKE HOLON</button>
+      </div>
+      <div>
+        <img src="eco park.jpg" alt="Eco Park">
+        <button onclick="location.href='eco park.html'">THE ECO PARK</button>
+      </div>
+      <div>
+        <img src="asik-asik falls.jpg" alt="Asik-Asik">
+        <button onclick="location.href='Asik Asik Falls.html'">ASIK-ASIK FALLS</button>
+      </div>
+      <div>
+        <img src="the green hills.jpg" alt="Green Hills">
+        <button onclick="location.href='green hiils.html'">THE GREEN HILLS</button>
+      </div>
+
+    </section>   
+        
+
+</body>
+</html>

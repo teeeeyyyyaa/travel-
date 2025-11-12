@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('asik-asik falls.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: 400px; /* Set a fixed height to make it shorter */
+      object-fit: cover; /* Maintain aspect ratio and cover the space */
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px;
+      position: sticky;
+      top: 60px;
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+    <img src="asik asik falls.jpg" alt="Asik-Asik Falls">
+
+    <div class="info">
+      <h2>Asik-Asik Falls</h2>
+      <p>Asik-Asik Falls, located in Barangay Upper Dado, Alamada, North Cotabato, is a magnificent 
+curtain-type waterfall that spans approximately 140 meters wide, cascading down a wall of green moss 
+and ferns. The name "Asik-Asik" comes from the local Hiligaynon word meaning "to sprinkle" or 
+"spray," perfectly describing how the water gracefully sprays down the rock face.</p><br>
+
+      <p>The cultural significance of Asik-Asik Falls runs deep among the Manobo tribe, the 
+indigenous people who have long inhabited this region. The Manobos consider the falls a sacred site, 
+believing it to be the dwelling place of their nature spirits called "Alabyog." According to their 
+oral traditions, these spirits are the guardians of the waters and keepers of the forest's natural 
+balance. The Manobo people have been the traditional stewards of this natural wonder for 
+generations.</p><br>
+
+      <p>Local beliefs surrounding Asik-Asik Falls are rich with spiritual meaning. The Manobo people 
+perform the "Panuvaran" ritual before entering the falls' vicinity, asking permission from the spirits 
+for safe passage and blessings. They believe that the mist from the falls has healing properties, 
+especially during the first light of dawn. The continuous flow of water is seen as a symbol of 
+abundance and eternal life, and the locals believe that the falls' waters are purest during the full 
+moon, when traditional healing rituals are often performed.</p><br>
+
+      <p>The culinary heritage of the area around Asik-Asik Falls reflects the bounty of the 
+surrounding mountains and forests. The Manobo people are known for their traditional dishes such as 
+"Inandap," a soup made with native herbs and freshwater fish found in the streams feeding the falls. 
+"Binakbak," another local delicacy, consists of wild boar meat preserved through a traditional smoking 
+process and flavored with local spices gathered from the forest.</p><br>
+
+      <p>Traditional food preparation in the area includes "Kakanin" or native rice cakes wrapped in 
+banana leaves, often served during cultural ceremonies at the falls. "Sinagmay," a fermented rice 
+wine, is produced locally and used in traditional rituals and celebrations. The community also 
+harvests wild honey from the surrounding forest, which they believe carries the blessed essence of 
+the falls' pristine environment. Seasonal fruits like "Marang" and "Durian" are abundant in the 
+surrounding forests and form an important part of the local diet.</p><br>
+
+      <p>Today, while maintaining their cultural practices, the local community has embraced 
+sustainable tourism, sharing their heritage with visitors while protecting the sanctity of the falls. 
+Visitors are encouraged to respect local customs, such as offering a moment of silence before 
+approaching the falls and refraining from loud noises that might disturb the spirits believed to 
+dwell there.</p>
+    
+</body>
+</html>

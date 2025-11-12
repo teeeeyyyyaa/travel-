@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Login</title>
+  <style>
+  /* Aesthetic travel background + frosted container */
+  body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0;min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  /* background image (Unsplash travel) */
+  body::before{ content:''; position:fixed; inset:0; background: url('BACKGROUND1.jpg') center/cover no-repeat; z-index:-2; transform:translateZ(0); }
+  /* dark overlay for contrast */
+  body::after{ content:''; position:fixed; inset:0; background: linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.5)); z-index:-1; }
+
+  .container{max-width:420px;margin:0;padding:26px;background:rgba(255,255,255,0.18);backdrop-filter: blur(10px);-webkit-backdrop-filter: blur(10px);border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.3);width:92%;border:1px solid rgba(255,255,255,0.14);color:#111}
+  h2{margin-top:0;text-align:center;color:#111}
+  label{display:block;margin:8px 0 4px;color:#222}
+  input{width:100%;padding:10px;border-radius:6px;border:1px solid rgba(0,0,0,0.12)}
+  button{margin-top:12px;width:100%;text-align:center;padding:10px 14px;border:none;background:#ac6a73;color:#fff;border-radius:6px;cursor:pointer;box-shadow:0 4px 12px rgba(255,111,150,0.18)}
+  .msg{margin-top:12px;font-weight:700}
+  a{color:rgb(182, 116, 116)}
+  @media (max-width:600px){
+    body{padding:16px}
+    .container{padding:20px;width:100%}
+    h2{font-size:1.2em}
+    input,label{font-size:16px}
+    button{padding:12px}
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Log in</h2>
+    <form id="loginForm">
+      <label for="username">Username</label>
+      <input id="username" name="username" type="text" autocomplete="username" required>
+      <label for="password">Password</label>
+      <input id="password" name="password" type="password" autocomplete="current-password" required>
+      <button type="submit">Sign in</button>
+    </form>
+    <p style="margin-top:8px">Not registered? <a href="signup.html">Create an account</a></p>
+    <div id="message" class="msg"></div>
+  </div>
+
+  <script>
+    const enc = new TextEncoder();
+    function toHex(buffer){return Array.from(new Uint8Array(buffer)).map(b=>b.toString(16).padStart(2,'0')).join('');}
+    function fromHex(hex){const b=new Uint8Array(hex.length/2);for(let i=0;i<b.length;i++)b[i]=parseInt(hex.substr(i*2,2),16);return b}
+    async function sha256(data){return await crypto.subtle.digest('SHA-256', data);}    
+
+    function loadUsers(){ try{return JSON.parse(localStorage.getItem('users')||'{}');}catch(e){return {}} }
+
+    document.getElementById('loginForm').addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const u = document.getElementById('username').value.trim();
+      const p = document.getElementById('password').value;
+      const msg = document.getElementById('message');
+      msg.style.color = 'black';
+
+      const users = loadUsers();
+      if (Object.keys(users).length === 0){ msg.style.color='orange'; msg.textContent='No users registered yet. Please create an account first.'; return; }
+      if (!users[u]){ msg.style.color='orange'; msg.innerHTML='User not found. <a href="signup.html">Register here</a>.'; return; }
+
+      const entry = users[u];
+      try{
+        const salt = fromHex(entry.salt);
+        const pwBytes = enc.encode(p);
+        const combined = new Uint8Array(salt.byteLength + pwBytes.byteLength);
+        combined.set(salt,0); combined.set(pwBytes,salt.byteLength);
+        const hashBuf = await sha256(combined.buffer);
+        const hex = toHex(hashBuf);
+        if (hex === entry.hash){
+          msg.style.color='green'; msg.textContent='Login successful — redirecting...';
+          sessionStorage.setItem('loggedInUser', u);
+          setTimeout(()=> location.href='populardestination.html', 600);
+        } else { msg.style.color='red'; msg.textContent='Invalid password.'; }
+      }catch(err){ console.error(err); msg.style.color='red'; msg.textContent='Error verifying credentials.' }
+    });
+  </script>
+</body>
+</html>

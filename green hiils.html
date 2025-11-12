@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('green hills.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+ <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  
+  
+  <div class="container">
+    <img src="green hills.jpg" alt="Green hills">
+
+    <div class="info">
+      <h2>GREEN HILLS</h2>
+      <p>The Green Hills of Senator Ninoy Aquino, located in the municipality of Senator Ninoy Aquino 
+in Sultan Kudarat, Philippines, is named in honor of the late Senator Benigno “Ninoy” Aquino Jr., 
+a national hero known for his fight for democracy. The area was once part of a vast forested highland 
+inhabited by indigenous peoples, particularly the Manobo and B’laan tribes. Over the years, 
+it became a settlement for Christian migrants from Luzon and the Visayas. The municipality was 
+officially created in 1989 through Republic Act No. 6712, separating it from the town of Kalamansig. 
+Since then, it has developed into an agricultural and eco-tourism destination while retaining its strong 
+cultural heritage.</p><br>
+
+       <p>The Green Hills of Senator Ninoy Aquino is renowned for its breathtaking rolling landscapes 
+covered with lush greenery, earning it the nickname “Little Batanes of Sultan Kudarat.” The area offers 
+panoramic views of mountain ranges, cool climate, and serene surrounngs,making it a favorite spot for 
+nature lovers and photographers. It is accessible by land from Isulan, the provincial capital, and is 
+ideal for outdoor activities such as hiking, camping, and sightseeing. The local government continues 
+to promote the Green Hills as a sustainable tourism destination that balances environmental preservation 
+with community livelihood opportunities.</p><br>
+
+       <p>Green Hills is a peaceful and beautiful community surrounded by rolling hills and lush greenery. 
+The area is known for its clean environment, fresh air, and friendly people. Most residents enjoy 
+simple living and take pride in taking care of nature. The place offers a calm atmosphere that 
+reflects the people’s deep respect for their land and environment.</p><br>
+
+       <p>The culture of Green Hills is rich and colorful. The locals are known for their strong sense of 
+unity and cooperation. They celebrate traditional festivals that showcase music, dance, and art. 
+During these celebrations, people wear native clothes, perform folk dances, and sing traditional 
+songs that have been passed down for generations. These cultural activities remind the people of 
+their roots and strengthen their community bonds.</p><br>
+
+       <p>Beliefs in Green Hills are often connected to nature and spirituality. Many residents believe 
+that the land, mountains, and rivers are sacred and must be protected. They perform rituals and 
+prayers to thank nature for providing them with food and resources. Some still follow traditional 
+customs that ask blessings for good harvests and safety from natural disasters.</p><br>
+
+       <p>Food is one of the most important parts of life in Green Hills. The locals love cooking and sharing 
+meals with family and friends. Their dishes are made mostly from fresh ingredients grown in their 
+gardens or farms. They eat vegetables, root crops, fruits, and fish. During festivals, they prepare 
+native rice cakes, stews, and grilled dishes that everyone enjoys together.</p><br>
+
+       <p>The people of Green Hills live a simple yet joyful lifestyle. Most families depend on farming, 
+gardening, and handicrafts for their daily needs. They work together in the fields, showing cooperation 
+and respect for each other. Even though their life is simple, they are content because they value 
+peace, family, and hard work.</p><br>
+
+       <p>Education and tradition go hand in hand in Green Hills. The schools teach children not only academic 
+lessons but also local culture and values. Elders share their wisdom and stories about the community’s 
+history. This helps the younger generation understand the importance of preserving their traditions 
+and respecting their ancestors.</p><br>
+
+       <p>Overall, Green Hills is a place where people, nature, and culture exist in harmony. The community’s 
+beliefs, traditions, and food reflect their love for the environment and for one another. Their way 
+of life reminds everyone that happiness can be found in simplicity, respect, and unity.</p><br>
+    
+
+    
+</body>
+</html>

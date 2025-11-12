@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('lake holon.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <img src="lake holon.jpg" alt="Lake holon">
+
+    <div class="info">
+      <h2>LAKE HOLON</h2>
+      <p>Lake Holon, also known as Lake Maughan, is a crater lake located on Mt. Parker in 
+South Cotabato, Philippines. It was formed after a violent volcanic eruption of Mt. Parker 
+(also called Melibengoy by the Tboli people) in January 1641, one of the most powerful 
+eruptions in Philippine history. The explosion created a vast crater that gradually filled 
+with rainwater over the centuries, giving rise to the serene lake that exists today. 
+For the indigenous Tboli tribe, the lake holds deep spiritual significance and is believed 
+to be a sacred place guarded by ancestral spirits.</p><br>
+
+       <p>Today, Lake Holon is renowned as one of the cleanest inland bodies of water in 
+the Philippines and a popular destination for eco-tourism and adventure seekers. It sits 
+approximately 1,200 meters above sea level, surrounded by lush forests and mountain ridges
+that provide breathtaking views. The lake is home to various species of freshwater fish 
+and is an important source of livelihood for nearby communities. Visitors can enjoy trekking, 
+camping, kayaking, and cultural exchanges with the Tboli people, who continue to protect and 
+preserve the natural beauty and cultural heritage of the area.</p><br>
+
+       <p>Lake Holon, also known as Lake Maughan, is a stunning crater lake located in the municipality 
+of T’boli, South Cotabato, Philippines. It sits within Mount Parker, a dormant volcano, and is often referred 
+to as the “Crown Jewel of the South” because of its pristine waters and breathtaking natural beauty. 
+The lake is a popular destination for hikers, nature lovers, and eco-tourists who are drawn to its peaceful 
+atmosphere and rich biodiversity. For the indigenous T’boli people, however, Lake Holon is much more than a 
+tourist attraction—it is a sacred place deeply woven into their history, culture, and spiritual beliefs.</p><br>
+
+       <p>The T’boli people, who are the primary inhabitants of the area surrounding Lake Holon, are known for 
+their strong connection to nature and their rich cultural traditions. They believe that the land, water, and 
+forest are gifts from the spirits and ancestors that must be respected and cared for. Their way of life is 
+guided by harmony with the environment, which is reflected in their customs, music, dances, and craftsmanship. 
+The T’boli are famous for their T’nalak weaving, where designs come from dreams, symbolizing their deep 
+spiritual connection to the unseen world.</p><br>
+
+       <p>According to T’boli beliefs, Lake Holon is inhabited by powerful guardian spirits who protect the area. 
+They call the lake Bolon La S’bu, meaning “the spring source of abundance,” and consider it sacred. Local folklore 
+tells that loud noises, disrespectful behavior, or pollution in the lake can anger the spirits, leading to bad 
+weather or misfortune. Because of this, visitors are reminded to observe silence and respect when visiting the site. 
+Rituals and offerings are often performed by elders or spiritual leaders to ask permission from the spirits before 
+major activities, such as fishing, swimming, or even holding community events near the lake.</p><br>
+
+       <p>Music and dance play a vital role in the T’boli’s cultural expression around Lake Holon. They perform 
+traditional dances like Kadal Tahaw (Dance of the Birds) and Madal Blelan (Dance of the Women), accompanied by 
+indigenous instruments such as the hegalong (two-stringed lute), kulintang (gongs), and kubing (jaw harp). 
+These performances are not only forms of entertainment but also expressions of gratitude and reverence to 
+nature and their ancestors. Through these art forms, the T’boli pass down their stories, beliefs, and values 
+from one generation to another.</p><br>
+
+       <p>Festivals around Lake Holon highlight both the natural and cultural heritage of the T’boli people. 
+The most notable is the Holon Festival, which celebrates the lake’s beauty and promotes environmental protection 
+and cultural pride. During this event, locals and tourists gather for rituals, traditional music and dance performances, 
+and community feasts. The festival also aims to remind visitors of the importance of preserving the environment and 
+respecting the customs of the indigenous people who call Lake Holon their home.</p><br>
+
+       <p>T’boli cuisine around Lake Holon reflects their resourcefulness and close relationship with nature. 
+Their food is simple but flavorful, often made with ingredients found in the forests and fields. Common dishes include
+linagpang (grilled fish soup), native chicken cooked in coconut milk, and root crops such as cassava and sweet potatoes. 
+Tilapia, caught from nearby lakes, is a staple, cooked in various ways such as grilled, fried, or made into chicharon na tilapia. 
+Meals are usually shared by families and communities, symbolizing unity and generosity—values deeply rooted in T’boli tradition.</p><br>
+
+       <p>Today, Lake Holon continues to serve as a symbol of the T’boli people’s resilience, faith, and respect for nature. 
+While it has become a major eco-tourism destination, the local government and the T’boli community work together to ensure 
+that tourism remains sustainable and culturally sensitive. Visitors are encouraged to follow the community’s guidelines and 
+participate in cultural immersion activities that promote understanding of the T’boli way of life. Through these efforts, 
+Lake Holon remains not only a place of natural beauty but also a living testament to the T’boli’s enduring culture, beliefs, 
+and harmony with the natural world.</p><br>
+    
+</body>
+</html>

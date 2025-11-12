@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travelsite</title>
+  <style>
+    :root {
+      --accent: rgb(12, 12, 12);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: url('BACKGROUND1.jpg') no-repeat center center fixed; /* Change this to your image */
+      background-size: cover;
+      color: #333;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Main Navigation */
+    nav.main-nav {
+      background: rgba(116, 69, 69, 0.85);
+      padding: 15px 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(6px);
+    }
+
+    nav.main-nav .logo {
+      color: var(--accent);
+      font-size: 22px;
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    nav.main-nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav.main-nav ul li {
+      margin-left: 20px;
+    }
+
+    nav.main-nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav.main-nav ul li a:hover {
+      color: #ffc0cb;
+      text-decoration: underline;
+    }
+
+    /* Sub Navigation */
+    nav.sub-nav {
+      background: rgba(126, 84, 91, 0.9);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px 10px;
+      position: sticky;
+      top: 60px;
+      z-index: 90;
+      backdrop-filter: blur(200px);
+    }
+
+    nav.sub-nav a {
+      color: rgb(241, 181, 181);
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav.sub-nav a:hover {
+      color: #ce9393;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+      background: rgba(190, 162, 162, 0.85);
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #7e545b;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    hr {
+      width: 60px;
+      height: 3px;
+      background: #7e545b;
+      border: none;
+      margin: 10px auto 30px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      justify-items: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(91, 58, 65, 0.9);
+      color: white;
+      font-size: 14px;
+      margin-top: 40px;
+      backdrop-filter: blur(4px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sub Navigation -->
+  <nav class="sub-nav">
+    <a href="#samal">•Samal Island</a>
+    <a href="#apo">•Mount Apo</a>
+    <a href="#dinagat">•Dinagat Island</a>
+    <a href="#white">•White Island</a>
+    <a href="#tinuyan">•Tinuy-an Falls</a>
+    <a href="#sebu">•Lake Sebu</a>
+    <a href="#holon">•Lake Holon</a>
+    <a href="#eco">•The Eco Park</a>
+    <a href="#asik">•Asik-Asik Falls</a>
+    <a href="#green">•Green Hills</a>
+  </nav>
+
+  <!-- Samal Island -->
+  <section id="samal">
+    <h2>Samal Island</h2>
+    <hr>
+    <div class="gallery">
+      <img src="samal1.jpg" alt="Samal 1">
+      <img src="samal2.jpg" alt="Samal 2">
+      <img src="samal3.jpg" alt="Samal 3">
+      <img src="samal4.jpg" alt="Samal 4">
+    </div>
+  </section>
+
+  <!-- Mount Apo -->
+  <section id="apo">
+    <h2>Mount Apo</h2>
+    <hr>
+    <div class="gallery">
+      <img src="apo1.jpg" alt="Apo 1">
+      <img src="apo2.jpg" alt="Apo 2">
+      <img src="apo3.jpg" alt="Apo 3">
+      <img src="apo4.jpg" alt="Apo 4">
+    </div>
+  </section>
+
+  <!-- Dinagat Island -->
+  <section id="dinagat">
+    <h2>Dinagat Island</h2>
+    <hr>
+    <div class="gallery">
+      <img src="dinagat1.jpg" alt="Dinagat 1">
+      <img src="/dinagat2 (2).jpg" alt="Dinagat 2">
+      <img src="dinagat3.jpg" alt="Dinagat 3">
+      <img src="dinagat4.jpg" alt="Dinagat 4">
+    </div>
+  </section>
+
+  <!-- White Island -->
+  <section id="white">
+    <h2>White Island</h2>
+    <hr>
+    <div class="gallery">
+      <img src="white1.jpg" alt="White 1">
+      <img src="white2.jpg" alt="White 2">
+      <img src="white3.jpg" alt="White 3">
+      <img src="white4.jpg" alt="White 4">
+    </div>
+  </section>
+
+  <!-- Tinuy-an Falls -->
+  <section id="tinuyan">
+    <h2>Tinuy-an Falls</h2>
+    <hr>
+    <div class="gallery">
+      <img src="tinuy-an1.jpg" alt="Tinuy-an 1">
+      <img src="tinuy-an2.jpg" alt="Tinuy-an 2">
+      <img src="tinuy-an3.jpg" alt="Tinuy-an 3">
+      <img src="tinuy-an4.jpg" alt="Tinuy-an 4">
+    </div>
+  </section>
+
+  <!-- Lake Sebu -->
+  <section id="sebu">
+    <h2>Lake Sebu</h2>
+    <hr>
+    <div class="gallery">
+      <img src="sebu1.jpg" alt="Sebu 1">
+      <img src="sebu2.jpg" alt="Sebu 2">
+      <img src="sebu3.jpg" alt="Sebu 3">
+      <img src="sebu4.jpg" alt="Sebu 4">
+    </div>
+  </section>
+
+  <!-- Lake Holon -->
+  <section id="holon">
+    <h2>Lake Holon</h2>
+    <hr>
+    <div class="gallery">
+      <img src="holon1.jpg" alt="Holon 1">
+      <img src="holon2.jpg" alt="Holon 2">
+      <img src="holon3.jpg" alt="Holon 3">
+      <img src="holon4.jpg" alt="Holon 4">
+    </div>
+  </section>
+
+  <!-- The Eco Park -->
+  <section id="eco">
+    <h2>The Eco Park</h2>
+    <hr>
+    <div class="gallery">
+      <img src="eco1.jpg" alt="Eco 1">
+      <img src="eco2.jpg" alt="Eco 2">
+      <img src="eco3.jpg" alt="Eco 3">
+      <img src="eco4.jpg" alt="Eco 4">
+    </div>
+  </section>
+
+  <!-- Asik-Asik Falls -->
+  <section id="asik">
+    <h2>Asik-Asik Falls</h2>
+    <hr>
+    <div class="gallery">
+      <img src="asik1.jpg" alt="Asik 1">
+      <img src="asik2.jpg" alt="Asik 2">
+      <img src="asik3.jpg" alt="Asik 3">
+      <img src="asik4.jpg" alt="Asik 4">
+    </div>
+  </section>
+
+  <!-- Green Hills -->
+  <section id="green">
+    <h2>Green Hills</h2>
+    <hr>
+    <div class="gallery">
+      <img src="green1.jpg" alt="Green 1">
+      <img src="green2.jpg" alt="Green 2">
+      <img src="green3.jpg" alt="Green 3">
+      <img src="green4.jpg" alt="Green 4">
+    </div>
+  </section>
+
+ 
+
+</body>
+</html>
+
+
+

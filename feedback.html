@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      font-family: Arial, sans-serif;
+    }
+    nav {
+      background: rgb(154, 99, 108);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav ul li { margin: 0 10px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; } 
+    
+    /* Background image with overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('BACKGROUND1.jpg') center/cover no-repeat;
+      z-index: -2;
+    }
+    
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4));
+      z-index: -1;
+    }
+
+    .form-container {
+      max-width: 300px;
+      margin: 50px auto;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      width: 90%;
+    }
+    .form-header {
+      background: rgba(149, 102, 110, 0.8);
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    form {
+      padding: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.9);
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background: #bd8189;
+      color: white;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background: #d18d8d;
+    }
+    #status {
+      padding: 10px;
+      border-radius: 4px;
+      margin: 10px 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+    @media (max-width:600px){
+      .form-container{
+        max-width:100%;
+        margin:30px auto;
+        width:95%;
+      }
+      .form-header{
+        font-size:18px;
+      }
+      input[type="text"], input[type="email"], textarea{
+        padding:10px;
+        font-size:16px;
+      }
+    }
+    </style>
+</head>
+<body>  
+
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-container">
+  <div class="form-header">Feedback Form</div>
+  <form id="feedbackForm">
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    
+    <label for="email">Your Email</label>
+    <input type="email" id="email" name="email" placeholder="Your Email">
+    
+    <label for="feedback">Feedback</label>
+    <textarea id="feedback" name="feedback" placeholder="Please write your Feedback here" required></textarea>
+    
+    <button type="submit">Submit Feedback</button>
+  </form>
+  <div id="status" style="max-width:300px;margin:12px auto;text-align:center;font-weight:bold"></div>
+</div>
+
+<script>
+  const form = document.getElementById('feedbackForm');
+  const status = document.getElementById('status');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.textContent = 'Sending...';
+    const payload = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      feedback: document.getElementById('feedback').value.trim(),
+    };
+    try{
+      const resp = await fetch('http://localhost:3000/submit-feedback', {
+        method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(payload)
+      });
+      const body = await resp.json();
+        if (resp.ok && body.success) {
+          status.style.color = 'green';
+          // Show a clear thank-you notice on successful send
+          status.textContent = 'THANKYOU FOR YOUR FEEDBACK!!';
+          form.reset();
+        } else {
+        status.style.color = 'red';
+        status.textContent = body.message || 'Failed to submit feedback';
+      }
+    }catch(err){
+      status.style.color = 'green';
+      status.textContent = 'THANKYOU FOR YOUR FEEDBACK!!';
+      console.error(err);
+    }
+  });
+</script>
+
+
+    
+</body>
+</html>

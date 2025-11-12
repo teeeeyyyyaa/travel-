@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav ul li { margin: 0 10px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('SAMAL.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: auto;
+      gap: 20px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-top: 20px;
+      position: sticky;
+      top: 60px;
+      align-self: flex-start;
+      min-width: 200px;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+
+    @media (max-width:900px){
+      .container{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      img{
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+        top: auto;
+        margin: 0;
+      }
+      .info{
+        width: 100%;
+        max-height: none;
+        padding: 0 10px;
+      }
+      .info p{
+        text-indent: 30px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width:600px){
+      .container{
+        padding: 10px;
+      }
+      img{
+        max-width: 100%;
+        border-width: 2px;
+      }
+      .info h2{
+        font-size: 1.3em;
+      }
+      .info p{
+        text-indent: 20px;
+        font-size: 13px;
+        padding: 0 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+ <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+
+  
+  <div class="container">
+    <img src="SAMAL.jpg" alt="Samal island">
+
+    <div class="info">
+      <h2>SAMAL ISLAND</h2>
+      <p>Samal Island, officially known as the Island Garden City of Samal, is part of Davao del Norte 
+in the Philippines. Historically, the island was inhabited by the Sama-Bajau people, also known as sea 
+gypsies or sea nomads. The name "Samal" is derived from these indigenous seafaring people who first 
+called the island their home. Today, it's a thriving tourist destination known for its pristine beaches, 
+rich marine life, and vibrant culture.</p><br>
+
+      <p>The cultural tapestry of Samal Island is woven from the traditions of its indigenous 
+Sama-Bajau people and influenced by successive waves of settlers. The Sama-Bajau people traditionally 
+lived in houseboats or stilt houses near the shore, reflecting their deep connection to the sea. Their 
+traditional way of life revolves around the ocean, with fishing and diving being not just livelihood 
+activities but cultural practices passed down through generations. The community's social structure is 
+built around extended family units called "kumpania," which work together in fishing and other 
+economic activities.</p><br>
+
+      <p>The spiritual beliefs of Samal's indigenous people are deeply rooted in animism and ancestor 
+worship. They believe in "umboh," the spirits of their ancestors who guide and protect them at sea. 
+Before any major fishing expedition, traditional rituals called "pagduwata" are performed to seek 
+blessings and safe passage. The "igal," a traditional dance that mimics the movement of waves and sea 
+creatures, is performed during important ceremonies and celebrations. The island also celebrates the 
+"Kabasan Festival," honoring the bountiful harvest from the sea and showcasing traditional music, 
+dance, and rituals.</p><br>
+
+      <p>Samal Island's cuisine is a reflection of its maritime heritage and abundant natural resources. 
+Fresh seafood is at the heart of their traditional dishes, with specialties like "tiyula itum" (black 
+soup made with burned coconut meat and tuna), and "piyanggang" (grilled fish in coconut milk and spices). 
+The locals are known for their unique way of preparing "kinilaw" (similar to ceviche) using the freshest 
+catch of the day, mixed with native vinegar, citrus, and local spices. "Tupig," a traditional rice cake 
+wrapped in banana leaves, and "junay," a purple-colored rice cake made from native black rice, are 
+popular local delicacies.</p><br>
+
+      <p>Traditional food preservation methods are still practiced on the island, including "daing" 
+(sun-dried fish) and "guinamos" (fermented fish paste), which were essential survival techniques 
+passed down through generations. During special occasions and festivals, communal cooking activities 
+called "kanduli" bring the community together, where traditional dishes are prepared and shared. The 
+preparation and sharing of food play a central role in strengthening community bonds and passing down 
+cultural knowledge to younger generations.</p><br> 
+gypsies, who lived mainly by fishing and trading. During the Spanish period, the island became a 
+settlement for indigenous groups and later developed under American and Japanese influences. 
+After World War II, Samal’s communities gradually united, and in 1998, the island’s three 
+municipalities—Babak, Samal, and Kaputian—were merged to form the Island Garden City of Samal 
+(IGaCoS), now a thriving component city. </p><br>
+
+       <p>Today, Samal Island is one of Mindanao’s top tourist destinations, celebrated for its 
+white-sand beaches, crystal-clear waters, and laid-back tropical charm. It lies just a short ferry 
+ride from Davao City, making it easily accessible for both local and international travelers. 
+The island offers a variety of attractions, including beach resorts, diving spots, waterfalls, and 
+the famous Monfort Bat Sanctuary, home to the world’s largest colony of fruit bats. With its natural
+beauty and eco-friendly development, Samal continues to balance tourism growth with environmental 
+conservation.
+</p>
+    
+
+    
+</body>
+</html>

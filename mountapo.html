@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Place Information - MOUNT APO</title>
+    
+  <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('MOUNTAPO.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+    <img src="MOUNTAPO.jpg" alt="mount apo">
+    <div class="info">
+      <h2>MOUNT APO</h2>
+      <p>Mount Apo, known as the “King of Philippine Peaks,” has long been revered by the 
+indigenous Bagobo, Manobo, and other tribes who consider it sacred. The name “Apo” is 
+derived from the word Apo Sandawa, meaning “Grandfather” or “Ancestor Spirit.” 
+The mountain’s first recorded ascent was in 1880, led by Don Joaquin Rajal, a Spanish 
+government official, along with Datu Manig and other locals. Over time, Mount Apo became 
+a symbol of natural pride and cultural heritage, representing both the rich biodiversity 
+of Mindanao and the deep spiritual connection of its people to the land.</p><br>
+
+       <p>Mount Apo is the highest mountain in the Philippines, standing at 2,954 meters 
+(9,692 feet) above sea level. It is a potentially active stratovolcano located between 
+Davao del Sur and North Cotabato in Mindanao. The mountain features diverse ecosystems, 
+from tropical rainforests to mossy highlands, and is home to rare species such as the 
+Philippine eagle. Designated as a national park and a UNESCO World Heritage tentative 
+site, Mount Apo is a popular destination for hikers and nature enthusiasts, offering 
+breathtaking views, waterfalls, hot springs, and rich flora and fauna.</p><br>
+
+      <p>Mount Apo, the highest mountain in the Philippines, is not only a natural wonder 
+but also a place deeply tied to the traditions and culture of the indigenous peoples who 
+live around it, such as the Bagobo, Manobo, and Lumad communities. These groups consider 
+the mountain sacred, believing it to be the home of their gods and ancestral spirits. 
+Before climbing or gathering resources from the area, they often perform rituals offering 
+betel nuts, rice, and native chicken to ask permission and protection from the spirits. 
+Festivals such as the “Apo Sandawa” celebration are held to honor the mountain’s spiritual 
+significance, featuring traditional music, dances, and prayers that reflect their gratitude 
+and respect for nature.</p><br>
+
+      <p>Food traditions around Mount Apo are equally rich and rooted in local ingredients.  
+The communities prepare dishes using what the land provides—root crops like cassava 
+and sweet potato, wild fruits, freshwater fish, and native chicken. One popular preparation 
+is linubihang manok, a native chicken cooked in coconut milk and taro leaves, reflecting both 
+the mountain's lush environment and the locals' resourcefulness. During gatherings and rituals, 
+rice is often cooked in bamboo (called suman sa ibos or puso), symbolizing unity and sustenance. 
+These traditional foods not only nourish the people but also serve as a link to their ancestors 
+and the sacred mountain they revere.</p><br>
+
+      <p>For adventurers and mountaineers, Mount Apo offers several challenging trails that showcase 
+its diverse terrain. The most popular routes include the Kidapawan trail, known for its steep ascent 
+through mossy forests, and the Kapatagan trail, featuring scenic grasslands and boulder fields. 
+The climb typically takes 2-3 days, with established campsites along the way providing rest stops 
+for climbers. At the summit, trekkers are rewarded with panoramic views of Mindanao, and on clear 
+days, even distant islands become visible. The mountain's crater, measuring about 500 meters in 
+diameter, contains a small lake and showcases active volcanic features like sulfuric vents and 
+hot springs.</p><br>
+
+      <p>The mountain's ecosystem is a treasure trove of biodiversity, hosting over 272 bird species, 
+111 species of butterflies, and numerous endemic plants. The critically endangered Philippine Eagle 
+(Pithecophaga jefferyi) finds sanctuary in its forests, along with other rare species like the 
+Philippine Brown Deer and Philippine Warty Pig. The mountain's vegetation varies dramatically with 
+altitude, from dipterocarp forests at lower elevations to moss-covered trees and hardy mountain 
+plants near the summit. Notable flora includes rare orchids, pitcher plants, and the endemic Apo 
+Balete (Ficus apo), named after the mountain itself.</p><br>
+
+      <p>Conservation efforts are ongoing to protect Mount Apo's natural and cultural heritage. 
+The Mount Apo Natural Park was established in 2003, covering 64,053 hectares of protected land. 
+Local communities, government agencies, and environmental organizations work together to implement 
+sustainable tourism practices, reforestation projects, and wildlife protection programs. Visitors 
+must obtain permits and follow strict guidelines to minimize their environmental impact. Traditional 
+knowledge of indigenous peoples is being integrated into conservation strategies, recognizing their 
+role as custodians of this sacred landscape. Climate change monitoring stations have also been 
+installed to track environmental changes and help preserve this national treasure for future 
+generations.</p><br>
+        
+
+</body>
+</html>

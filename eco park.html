@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('eco park.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      min-height: 600px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-right: 20px;
+      margin-top: 20px; /* lowered slightly */
+      position: sticky;
+      top: 60px; /* stick a bit lower */
+      align-self: flex-start;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+  </style>
+</head>
+<body>
+ 
+  <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <img src="eco park.jpg" alt=" The Eco Park">
+
+    <div class="info">
+      <h2> THE ECO PARK</h2>
+      <p>The Eco Park of Lebak was established as part of the local government’s initiative 
+to promote environmental conservation and sustainable tourism. Originally, the area was a 
+simple open space used by the community for small gatherings and recreational activities. 
+Over time, it was developed into an eco-friendly park that highlights the natural beauty and 
+biodiversity of Lebak, while also serving as a model for ecological awareness and green 
+development. The project aimed to create a space where nature and community could thrive 
+together, reflecting Lebak’s commitment to preserving its rich natural heritage.</p><br>
+
+       <p>Today, the Eco Park of Lebak serves as a popular destination for both locals and 
+tourists who wish to enjoy outdoor leisure and environmental education. The park features 
+walking trails, picnic areas, gardens, and spaces for cultural and recreational activities. 
+It also promotes eco-friendly practices such as waste segregation, tree planting, and sustainable 
+landscaping. Visitors can experience the tranquility of nature while learning about environmental 
+stewardship, making it an ideal spot for family outings, school trips, and community events.</p>
+
+       <p>An eco park is a protected natural area designed to promote environmental conservation, sustainable 
+tourism, and cultural preservation. It serves as a sanctuary for plants and animals while providing a peaceful 
+place for people to relax, learn, and connect with nature. Many eco parks in the Philippines are located in areas 
+rich in biodiversity, such as forests, mountains, and lakes. They are developed not only to attract tourists 
+but also to encourage environmental awareness and respect for local traditions and communities. Eco parks often 
+highlight the importance of protecting the environment while allowing visitors to experience its beauty responsibly.</p><br>
+
+       <p>The communities surrounding eco parks, especially in rural and indigenous areas, play a vital role in 
+maintaining their natural and cultural balance. The local people serve as caretakers, guides, and storytellers,
+sharing their traditions and beliefs with visitors. Many of them belong to indigenous groups who have lived in 
+harmony with nature for generations. Their way of life reflects a deep respect for the land, which they see as 
+acred and life-giving. They believe that every tree, river, and mountain has a spirit that must be honored and 
+protected. These cultural values help sustain the eco park and remind visitors to treat the environment with 
+care and humility.</p><br>
+
+       <p>Beliefs and spiritual practices are an important part of life for these communities. Before starting any major 
+activity, such as building, farming, or fishing, they often perform rituals to ask permission and blessings from the 
+spirits of nature. Offerings like food, flowers, or native crafts are placed in sacred areas as a sign of gratitude 
+and respect. In some eco parks, you may find prayer areas or ancestral grounds where local people continue to practice 
+these customs. These traditions are passed down through storytelling, songs, and dances, ensuring that younger generations 
+understand the importance of maintaining harmony with nature.</p><br>
+
+       <p>Culture in eco park communities is also expressed through art, music, and festivals that celebrate both nature 
+and heritage. Visitors can experience traditional dances that mimic the movements of birds, rivers, or wind, as well as 
+songs that tell stories of the people’s connection to their land. Handicrafts made from bamboo, abaca, and other natural 
+materials are sold as souvenirs, showcasing the creativity and resourcefulness of local artisans. These cultural expressions 
+not only preserve tradition but also provide livelihood opportunities for families, helping sustain both the culture and the 
+eco park’s environment.</p><br>
+
+       <p>Food in eco park areas reflects the natural abundance of the surroundings. Meals are often made from locally grown crops, 
+fresh vegetables, and river or lake fish. Traditional dishes may include linagpang (grilled fish soup), sinugba (grilled meat or fish), 
+and laing (taro leaves cooked in coconut milk). Root crops like cassava and sweet potatoes are common staples, while fruits such as
+ bananas and coconuts are used for snacks and desserts. Many eco parks also promote organic farming, encouraging the use of chemical-free 
+ ingredients. Sharing meals is considered an important part of community life, symbolizing unity, hospitality, and gratitude.</p><br>
+
+       <p>Overall, eco parks are more than just tourist destinations—they are living classrooms where people learn about the environment, 
+culture, and sustainable living. They represent the connection between nature and humanity, where modern development and 
+traditional beliefs can exist in harmony. The communities who live near these parks remind everyone that caring for the 
+environment is not just an act of preservation but also a way of honoring the past and securing the future. Through the 
+continued practice of their culture, beliefs, and food traditions, eco parks remain symbols of balance, beauty, and respect 
+for the natural world.</p><br>
+    
+
+    
+</body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ <style>
+     nav {
+      background: rgb(126, 84, 91);
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav .logo {
+      color: var(--accent);
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav ul li { margin: 0 10px; }
+    nav ul li a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    nav ul li a:hover { color: lightpink; }    
+    
+    .destinations {
+      padding: 50px 20px;
+      background: linear-gradient(to right, #ffffff, #f5f5f6 );
+      text-align: center;
+    }
+    .destinations h2 {
+      font-size: 2em; margin-bottom: 30px; color: black;
+    }
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    .dest-grid img {
+      width: 100%; height: 200px; object-fit: cover;
+      border-radius: 10px;
+    }
+    .dest-grid div {
+      position: relative; color: #333333; font-weight: bold;
+    }
+    .dest-grid div span {
+      position: absolute; bottom: 10px; left: 10px;
+      background: white; padding: 5px 10px; border-radius: 5px;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f7f7f7;
+      position: relative;
+    }
+
+    /* Blurred full-page background image kept behind content */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url('DINAGS.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: scale(1.03);
+      filter: blur(6px);
+      z-index: -1;
+      will-change: transform;
+    }
+
+    h1 {
+      text-align: center;
+      color: black;
+      padding: 20px;
+    }
+
+    .container {
+      width: 100%;
+      margin: 0;
+      background-color: transparent; /* let background image show through */
+      border: none;
+      padding: 20px;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      min-height: auto;
+      gap: 20px;
+    }
+
+    img {
+      width: 45%;
+      display: block;
+      height: auto;
+      border: 3px solid rgba(255,255,255,0.6);
+      border-radius: 8px;
+      margin-top: 20px;
+      position: sticky;
+      top: 60px;
+      align-self: flex-start;
+      min-width: 200px;
+    }
+
+    .info {
+      width: 50%;
+      overflow-y: auto;
+      max-height: 600px;
+      padding-right: 20px;
+      scrollbar-width: thin;
+      box-sizing: border-box;
+    }
+
+    .info h2 {
+      text-align: center;
+      color: black;
+    }
+
+    .info p {
+      text-align: justify;
+      color: black;
+      font-size: 15px;
+      line-height: 1.5;
+      text-indent: 50px;
+      padding: 0 10px;
+    }
+
+    /* Scrollbar styling for webkit browsers */
+    .info::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .info::-webkit-scrollbar-track {
+      background: rgba(255,255,255,0.3);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.25);
+      border-radius: 4px;
+    }
+
+    .info::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,0.35);
+    }
+
+    .package {
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .book-btn {
+      display: block;
+      margin: 15px auto;
+      background-color: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 15px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .book-btn:hover {
+      background-color: rgba(0,0,0,0.75);
+    }
+
+    @media (max-width:900px){
+      .container{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+      img{
+        width: 100%;
+        max-width: 400px;
+        position: relative;
+        top: auto;
+        margin: 0;
+      }
+      .info{
+        width: 100%;
+        max-height: none;
+        padding: 0 10px;
+      }
+      .info p{
+        text-indent: 30px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width:600px){
+      .container{
+        padding: 10px;
+      }
+      img{
+        max-width: 100%;
+        border-width: 2px;
+      }
+      .info h2{
+        font-size: 1.3em;
+      }
+      .info p{
+        text-indent: 20px;
+        font-size: 13px;
+        padding: 0 5px;
+      }
+      nav{
+        flex-direction: column;
+        gap: 10px;
+      }
+      nav ul{
+        flex-direction: column;
+        gap: 0;
+      }
+      nav ul li{
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+ 
+ <nav>
+    <a href="#" class="logo">TravelSite</a>
+    <ul>
+      <li><a href="populardestination.html">Destination</a></li>
+      <li><a href="galleey.html">Gallery</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+    </ul>
+  </nav>
+
+  
+  <div class="container">
+    <img src="DINAGS.jpg" alt="Dinagat island">
+
+    <div class="info">
+      <h2>DINAGAT ISLAND</h2>
+      <p>Dinagat Island, located in the Caraga region of the Philippines, was once part of the 
+  province of Surigao del Norte. It gained prominence during the 1960s when spiritual leader 
+  Ruben Edera Ecleo Sr. founded the Philippine Benevolent Missionaries Association (PBMA), which 
+  attracted a large following. The island’s people long sought independence, and on December 2, 2006, 
+  Dinagat Islands officially became a separate province through Republic Act No. 9355. Although its 
+  provincial status was briefly revoked in 2010 due to legal challenges, it was reinstated by the 
+  Supreme Court in 2012, reaffirming its identity as the Philippines’ newest province. </p><br>
+
+       <p>Dinagat Islands is an archipelagic province located off the northeastern coast of Mindanao,         
+bordered by the Surigao Strait and the Philippine Sea. Its capital is San Jose, and the province is 
+known for its rich natural resources, pristine beaches, limestone formations, and diverse marine 
+life. Fishing, mining, and agriculture are the main sources of livelihood for its residents. 
+The island is also home to unique flora and fauna, making it an emerging destination for eco-tourism 
+and adventure seekers.</p><br>
+
+      <p>The cultural landscape of Dinagat Islands is a fascinating blend of traditional Filipino customs 
+and unique local practices. The island's culture is heavily influenced by the PBMA movement, which 
+has created a distinct spiritual community. The people of Dinagat, known as Dinagatnons, are known 
+for their strong sense of community and environmental stewardship. Traditional arts like mat weaving 
+using native materials, particularly the "tikug" grass, showcase the islanders' craftsmanship and 
+connection to their natural surroundings.</p><br>
+
+      <p>Local beliefs in Dinagat Islands reflect a unique synthesis of Christianity, indigenous 
+spirituality, and PBMA teachings. Many residents practice "panubad-tubad," a traditional healing 
+ritual that uses locally gathered herbs and prayers. The island's numerous caves are considered 
+sacred spaces, where elders perform "panawagtawag" ceremonies to commune with nature spirits. 
+During the annual "Bugkos Festival," the community celebrates unity and thanksgiving through 
+traditional dances, music, and spiritual gatherings.</p><br>
+
+      <p>The culinary heritage of Dinagat Islands features an abundance of seafood and locally grown 
+ingredients. "Kinhason" (various shellfish) is a staple in local cuisine, often prepared in coconut 
+milk with native herbs. "Tinolang Pakla," a soup made from grouper fish with local greens and ginger, 
+is a beloved traditional dish. The islands are also known for "Ginamos," a fermented fish paste that 
+adds a distinct flavor to many local dishes.</p><br>
+
+      <p>Local delicacies include "Binagoongang Hasil," made from tiny shrimp fermented with salt, 
+and "Sinugbang Malonggong," grilled trumpet fish seasoned with native citrus and spices. The 
+community takes pride in "Puto Dinagat," a special rice cake made with coconut milk and wrapped 
+in banana leaves. During festivals, families prepare "Tinubdan," a traditional sweet made from 
+native cassava and coconut, symbolizing the sweetness of community gatherings.</p><br>
+
+      <p>Marine harvesting practices are guided by traditional knowledge passed down through generations. 
+Fishermen observe the lunar calendar for optimal fishing times and practice sustainable fishing 
+methods. The preparation of "Dayok" (dried fish) and "Guinamos" (fermented fish paste) demonstrates 
+the islanders' expertise in food preservation techniques that have sustained communities for 
+generations.</p>
+    
+</body>
+</html>
